@@ -39,3 +39,9 @@ end
 When(/^La palabra a adivinar es "(.*?)"$/) do |arg1|
   visit "/define/#{arg1}"
 end
+
+Then(/^existen "(.*?)" intentos$/) do |arg1|
+  last_response.should have_xpath( "//span[@id='intentos']") do |span|
+     span.should contain( arg1 )
+   end
+end
