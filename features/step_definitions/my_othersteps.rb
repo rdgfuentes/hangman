@@ -45,3 +45,16 @@ Then(/^existen "(.*?)" intentos$/) do |arg1|
      span.should contain( arg1 )
    end
 end
+
+Then(/^el jugador pierde$/) do 
+  last_response.should have_xpath( "//h2[@id='fin']") do |span|
+     span.should contain( 'PERDISTE' )
+   end
+end
+
+Then(/^el juego no termino$/) do
+  last_response.should have_xpath( "//h2[@id='fin']") do |span|
+     span.should_not contain( 'PERDISTE' )
+     span.should_not contain( 'GANASTE' )
+	end
+end

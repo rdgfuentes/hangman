@@ -23,5 +23,6 @@ post '/enviar' do
 	ok=PALABRA.contiene?(@letraIngresada)
   @resultado = ok ? "OK" : "FAIL"
 	@intentos=PALABRA.obtener_intentos
+	@fin_juego = @intentos == 0 ? "PERDISTE" : ""
   erb :index
 end
