@@ -79,3 +79,4 @@ Scenario: al agotar los 6 intentos el jugador pierde
 	Then busca la letra ingresada en la palabra y muestra resultado "FAIL"
 	And existen "0" intentos
 	And el jugador pierde
+	And le permite reiniciar el juego

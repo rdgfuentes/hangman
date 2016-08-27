@@ -58,3 +58,10 @@ Then(/^el juego no termino$/) do
      span.should_not contain( 'GANASTE' )
 	end
 end
+
+Then(/^le permite reiniciar el juego$/) do
+	last_response.should have_xpath( "//a[@id='reiniciar'][@href='/']") do |span|
+     span.should contain( 'Reiniciar' )
+	end
+end
+
