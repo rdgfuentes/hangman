@@ -5,7 +5,7 @@ PALABRA=Palabra.new(["hangman", "hola", "mundo", "juan", "leo", "ensalada", "pep
 get '/' do
     @letraIngresada = "" 
 	@patron=PALABRA.obtener_patron
-	@intentos=6
+	@@intentos=6
     erb :index
 end
 get '/define/:x' do
@@ -18,6 +18,8 @@ end
 post '/enviar' do
   @letraIngresada = params[:letra] 
 	@patron=PALABRA.obtener_patron
-  @resultado = PALABRA.contiene?(@letraIngresada) ? "OK" : "FAIL"
+	ok=PALABRA.contiene?(@letraIngresada)
+  @resultado = ok ? "OK" : "FAIL"
+  @@intentos -= ok ? 0 : 1
   erb :index
 end
