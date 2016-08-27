@@ -11,5 +11,6 @@ end
 post '/enviar' do
   @letraIngresada = params[:letra] 
 	@patron=PALABRA.obtener_patron
+  @resultado = PALABRA.obtener_palabra.include?(@letraIngresada.downcase) ? "OK" : "FAIL"
   erb :index
 end
