@@ -27,4 +27,19 @@ describe "Buscar letra en palabra" do
 		expect(resultado).to be == false
 	end
 
+	it "indica false cuando la letra esta vacia" do
+		p=Palabra.new(["carlos"])
+		resultado = p.contiene?("")
+		expect(resultado).to be == false
+	end
+
+end
+
+describe "Contabilizar intentos" do
+	it "cuando la letra no se encuenta disminuyen los intentos en 1" do
+		p=Palabra.new(["carlos"])
+		expect(p.obtener_intentos).to be == 6
+		p.contiene?("x")
+		expect(p.obtener_intentos).to be == 5
+	end		
 end

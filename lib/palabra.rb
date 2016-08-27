@@ -3,7 +3,8 @@ class Palabra
 		change lista.sample
 	end
 	def contiene? letra
-		ok = @palabra.downcase.include?(letra.downcase)
+
+		ok = letra.length == 1 && @palabra.downcase.include?(letra.downcase)
 		@intentos -= ok ? 0 : 1
 		ok
 	end
