@@ -1,5 +1,12 @@
 <html>
 <body>
 	<h1>Bienvenidos al juego del Ahorcado</h1>
+	<form action="/enviar" method="POST">
+	<div>
+	Ingrese una letra: <input type="text" name="letra" id="letra"/><input type="submit" name="enviar" id="enviar" value="Enviar Letra"/>
+	</div>
+<br>
+	<div>Letra ingresada: <span id="letraIngresada" >"<%=@letraIngresada%>"</span></div>
+</form>
 </body>
 </html>
