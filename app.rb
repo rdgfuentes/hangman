@@ -3,7 +3,8 @@ require './lib/palabra'
 
 PALABRA=Palabra.new(["hangman", "hola", "mundo", "juan", "leo", "ensalada", "pepe", "auto", "azul", "pepino"])
 get '/' do
-    @letraIngresada = "" 
+    @letraIngresada = ""
+    PALABRA.reiniciar 
 	@patron=PALABRA.obtener_patron
 	@intentos=PALABRA.obtener_intentos
     erb :index
@@ -22,6 +23,5 @@ post '/enviar' do
 	ok=PALABRA.contiene?(@letraIngresada)
   @resultado = ok ? "OK" : "FAIL"
 	@intentos=PALABRA.obtener_intentos
-  @intentos -= ok ? 0 : 1
   erb :index
 end

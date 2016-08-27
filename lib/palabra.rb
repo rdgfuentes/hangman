@@ -1,10 +1,11 @@
 class Palabra
 	def initialize(lista)
-		@palabra=lista.sample
-		@intentos=6
+		change lista.sample
 	end
 	def contiene? letra
-		@palabra.downcase.include?(letra.downcase)
+		ok = @palabra.downcase.include?(letra.downcase)
+		@intentos -= ok ? 0 : 1
+		ok
 	end
 	def obtener_patron
 		"_ " * @palabra.length
@@ -16,6 +17,10 @@ class Palabra
 		@intentos
 	end
 	def change p
+		reiniciar
 		@palabra = p
+	end
+	def reiniciar
+		@intentos=6
 	end
 end
