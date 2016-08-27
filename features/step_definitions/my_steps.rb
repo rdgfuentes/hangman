@@ -21,3 +21,11 @@ Then(/^muestra letra "(.*?)"$/) do |arg1|
   end
 end
 
+
+When(/^Existe palabra a adivinar$/) do
+  last_response.body.should =~ /Adivine la palabra/m
+end
+
+Then(/^Muestra el patron de la palabra$/) do
+  last_response.body.should =~ /<div id="palabra">([_ ]+)<\/div>/m
+end

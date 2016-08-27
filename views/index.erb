@@ -1,7 +1,10 @@
 <html>
 <body>
 	<h1>Bienvenidos al juego del Ahorcado</h1>
-	<form action="/enviar" method="POST">
+
+	Adivine la palabra
+	<div id="palabra"><%=@patron%></div>
+<form action="/enviar" method="POST">
 	<div>
 	Ingrese una letra: <input type="text" name="letra" id="letra"/><input type="submit" name="enviar" id="enviar" value="Enviar Letra"/>
 	</div>
