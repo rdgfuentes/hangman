@@ -35,3 +35,7 @@ Then(/^busca la letra ingresada en la palabra y muestra resultado "(.*?)"$/) do 
      span.should contain( arg1 )
    end
 end
+
+When(/^La palabra a adivinar es "(.*?)"$/) do |arg1|
+  visit "/define/#{arg1}"
+end

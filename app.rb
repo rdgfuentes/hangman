@@ -7,10 +7,15 @@ get '/' do
 	@patron=PALABRA.obtener_patron
     erb :index
 end
+get '/define/:x' do
 
+	PALABRA.change params[:x]
+    @letraIngresada = "" 
+	@patron=PALABRA.obtener_patron
+    erb :index
+end
 post '/enviar' do
   @letraIngresada = params[:letra] 
-	@patron=PALABRA.obtener_patron
-  @resultado = PALABRA.obtener_palabra.include?(@letraIngresada.downcase) ? "OK" : "FAIL"
+  @resultado = PALABRA.contiene?(@letraIngresada) ? "OK" : "FAIL"
   erb :index
 end
