@@ -10,5 +10,6 @@ end
 
 post '/enviar' do
   @letraIngresada = params[:letra] 
+  @resultado = "OK"
   erb :index
 end
