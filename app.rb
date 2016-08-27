@@ -9,7 +9,8 @@ get '/' do
 end
 
 post '/enviar' do
+	@palabra=Palabra.new("hangman")
   @letraIngresada = params[:letra] 
-  @resultado = "OK"
+  @resultado = "hangman".include?(@letraIngresada.downcase) ? "OK" : "FAIL"
   erb :index
 end
